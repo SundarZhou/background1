@@ -25,7 +25,7 @@ module ApplicationHelper
   end
   def main_nav
     nav_html = %Q[
-      <li class="#{'active' if controller_name == 'dashboard'}">#{link_to '控制面板', root_path}</li>
+      <li class="#{'active' if controller_name == 'dashboard'}">#{link_to '脚本设置', root_path}</li>
       <li class="#{'active' if controller_name == 'accounts'}">#{link_to '帐号列表', accounts_path}</li>
       <li class="#{'active' if controller_name == 'informations'}">#{link_to '导入数据', informations_path}</li>
     ]
@@ -45,7 +45,7 @@ module ApplicationHelper
       ]
     else controller_name == 'dashboard'
       nav_html = %Q[
-        <li class="#{'active' if controller_name == 'dashboard'}">#{link_to "控制面板", root_path}</li>
+        <li class="#{'active' if controller_name == 'dashboard'}">#{link_to "脚本设置", root_path}</li>
       ]
     end
     nav_html

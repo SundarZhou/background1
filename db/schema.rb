@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_114014) do
+ActiveRecord::Schema.define(version: 2020_04_07_130922) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "phone", null: false
@@ -39,6 +39,31 @@ ActiveRecord::Schema.define(version: 2020_03_02_114014) do
     t.string "domain_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "platform"
+    t.integer "region"
+    t.string "account"
+    t.string "password"
+    t.string "platform_id"
+    t.integer "wait_time"
+    t.integer "shielding"
+    t.text "password_setting"
+    t.integer "load_type"
+    t.integer "auxiliary_platform"
+    t.integer "auxiliary_time"
+    t.integer "vpn_setting"
+    t.integer "collection_type"
+    t.text "function"
+    t.integer "tool_type"
+    t.string "facebook_account"
+    t.string "facebook_password"
+    t.integer "facebook_setting"
+    t.text "custom_function"
+    t.text "input_setting"
+    t.integer "nickname_type"
+    t.integer "custom_nickname"
+    t.text "friend_accouts"
+    t.text "add_type"
+    t.integer "friend_count"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

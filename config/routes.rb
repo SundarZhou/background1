@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "import_data" => 'accounts#import_data'
   get "get_data" => "informations#get_data"
   get "update_data" => "informations#update_data"
+  get "get_setting" => "setting#get_setting"
 end

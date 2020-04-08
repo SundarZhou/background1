@@ -1,7 +1,219 @@
 <%= render 'shared/error_messages', object: f.object %>
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :platform, "平台：" , class: "pull-right" %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :platform, collection: Setting.platforms.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
 
-<%= f.input :title, input_html: {class:'form-control'} %>
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :region, "国内/国外：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :region, collection: Setting.regions.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
 
-<%= f.input :description, as: :text, input_html: {class:'form-control'} %>
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :account, "扫码平台api帐号：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :account  %>
+  </div>
+</div>
 
-<%= f.input :domain_name, input_html: {class:'form-control'} %><br>
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :password, "扫码平台密码：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :password, type: "text"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :platform_id, "扫码平台I_ID： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :platform_id  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :wait_time, "等待验证码的次数： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :wait_time  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :shielding, "拉黑手机号：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :shielding, collection: Setting.shieldings.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :password_setting, "密码配置：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :password_setting, collection: Setting::PASSWORD_SETTINGS, as: :check_boxes, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :load_type, "滑块：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :load_type, collection: Setting.load_types.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :auxiliary_platform, "辅助：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :auxiliary_platform, collection: Setting.auxiliary_platforms.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :auxiliary_time, "设置辅助时间： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :auxiliary_time  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :vpn_setting, "VPN设置：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :vpn_setting, collection: Setting.vpn_settings.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :collection_type, "收藏设置：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :collection_type, collection: Setting.collection_types.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :function, "功能区：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :function, collection: Setting::FUNCTIONS, as: :check_boxes, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :tool_type, "工具设置：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :tool_type, collection: Setting.tool_types.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :facebook_account, "Facebook帐号密码： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-3">
+     <%= f.input_field :facebook_account  %>
+  </div>
+  <div class="col-md-3">
+     <%= f.input_field :facebook_password, type: "text"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :facebook_setting, "Facebook服务器：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :facebook_setting, collection: Setting.facebook_settings.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :custom_function, "订制功能：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :custom_function, collection: Setting::CUSTOM_FUNCTIONS, as: :check_boxes, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :input_setting, "输入界面配置信息：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :input_setting, collection: Setting::INPUT_SETTINGS, as: :check_boxes, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :nickname_type, "昵称信息", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :nickname_type, collection: Setting.nickname_types.keys, as: :radio_buttons, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :custom_nickname, "昵称个数／自定义： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :custom_nickname  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :friend_accouts, "好友微信号： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :friend_accouts, :placeholder => "添加多个好友请用-隔开"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :add_type, "添加方式：", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :add_type, collection: Setting::ADD_TYPES, as: :check_boxes, :item_wrapper_class => "radio-inline"  %>
+  </div>
+</div>
+
+<div class="row well form-inline" style="margin-top:20px">
+  <div class="col-md-2">
+    <%= f.label :friend_count, "加好友个数： ", class: "pull-right"  %>
+  </div>
+  <div class="col-md-10">
+     <%= f.input_field :friend_count  %>
+  </div>
+</div>
