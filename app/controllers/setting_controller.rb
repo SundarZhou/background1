@@ -21,7 +21,7 @@ class SettingController < ApplicationController
                       password_setting: password_setting,
                       load_type: Setting.load_types[@setting.load_type],
                       auxiliary_time: @setting.auxiliary_time,
-                      auxiliary_platform: @setting.auxiliary_platform,
+                      auxiliary_platform: Setting.auxiliary_platforms[@setting.auxiliary_platform],
                       vpn_setting: Setting.vpn_settings[@setting.vpn_setting],
                       collection_type: Setting.collection_types[@setting.collection_type],
                       function: function,
