@@ -126,11 +126,11 @@
     $.each($('.account-checkbox:checked'), function () {
       account_ids.push($(this).val());
     });
-
+    url = window.location.pathname + window.location.search
     if (account_ids.length > 0) {
       $("#batch_destroy").attr("href", "batch_destroy?account_ids="+account_ids)
       setTimeout(function(){
-        window.location.reload()
+        location.href = url
       },2000);
     } else {
       alert('你没有勾选任何帐号!');
