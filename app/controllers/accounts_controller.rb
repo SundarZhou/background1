@@ -3,7 +3,9 @@ class AccountsController < ApplicationController
   before_action :find_account, only: [ :edit, :update,:destroy]
   skip_before_action :authenticate_user!, :only => :import_data
   def index
+
     @accounts = params[:is_normal].present? ?  Account.unnormal : Account.normal
+    @accounts = params[:is_export].present? ? Account.normal_export : @accounts
   end
 
   def destroy
@@ -20,7 +22,6 @@ class AccountsController < ApplicationController
   # end
   def download
     @accounts = Account.where(id: params[:account_ids].split(","))
-
     @accounts.update_all(is_export: true)
     output = ''
     @accounts.pluck(:phone, :password, :token, :link, :time).each do |account|
