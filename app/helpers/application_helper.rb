@@ -26,7 +26,7 @@ module ApplicationHelper
   def main_nav
     nav_html = %Q[
       <li class="#{'active' if controller_name == 'dashboard'}">#{link_to '脚本设置', root_path}</li>
-      <li class="#{'active' if controller_name == 'accounts'}">#{link_to '帐号列表', accounts_path}</li>
+      <li class="#{'active' if controller_name.in? ['accounts', 'abnormals']}">#{link_to '帐号列表', accounts_path}</li>
       <li class="#{'active' if controller_name == 'informations'}">#{link_to '导入数据', informations_path}</li>
     ]
 
@@ -34,11 +34,12 @@ module ApplicationHelper
   end
 
   def side_nav
-    if controller_name == 'accounts'
+    if controller_name.in? ['accounts', 'abnormals']
       nav_html = %Q[
         <li class="#{'active' if controller_name == 'accounts' && ( params[:is_normal].nil? && params[:is_export].nil?  ) }">#{link_to "正常帐号", accounts_path}</li>
         <li class="#{'active' if controller_name == 'accounts' && ( params[:is_normal].present? ||  params[:is_normal] == "false" )}">#{link_to "不正常帐号", accounts_path(is_normal: false)}</li>
         <li class="#{'active' if controller_name == 'accounts' && ( params[:is_export].present? ||  params[:is_export] == "true" )}">#{link_to "已导出帐号", accounts_path(is_export: true)}</li>
+        <li class="#{'active' if controller_name == 'abnormals'}">#{link_to "验证码错误", abnormals_path}</li>
       ]
     elsif controller_name == 'informations'
       nav_html = %Q[

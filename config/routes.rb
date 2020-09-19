@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     get "batch_update" => 'informations#batch_update'
     resources :accounts
     resources :informations
+    resources :abnormals
   end
   get "import_data" => 'accounts#import_data'
   get "get_data" => "informations#get_data"
   get "update_data" => "informations#update_data"
   get "get_setting" => "setting#get_setting"
+  get "import_abnormal" => "abnormals#import"
 end
