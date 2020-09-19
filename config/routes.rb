@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :accounts
     resources :informations
     resources :abnormals
+    get "download_abnormals" => 'abnormals#download'
+    get "batch_destroy_ab" => 'abnormals#batch_destroy'
   end
   get "import_data" => 'accounts#import_data'
   get "get_data" => "informations#get_data"

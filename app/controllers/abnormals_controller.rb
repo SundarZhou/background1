@@ -31,7 +31,7 @@ class AbnormalsController < ApplicationController
     output = ''
     @abnormals.each do |abnormal|
 
-      output << [abnormal.phone, abnormal.code, abnormal.created_at.strftime('%Y-%m-%d-%H-%M')].join("----")
+      output << [abnormal.phone, abnormal.code, abnormal.created_at.strftime('%Y-%m-%d-%H-%M'), abnormal.author].join("----")
       output << "\n"
     end
     send_data(output, :filename => "abnormals-#{Time.now.strftime('%Y-%m-%d-%H-%M')}.txt",:type => 'text; charset=utf-8')
